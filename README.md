@@ -17,3 +17,8 @@ To use these fonts, simply download them to your computer and add them to your o
 | silent e    | littl**e** |  E  |
 | silent k    | kic**k** |
 
+# Copyright and License
+Copyright 2017, Jay Dermody
+Font and Website Content Licensed under the Apache License, Version 2.0
+
+Derived from 'Open Sans', Digitized data copyright 2010-2011, Google Corporate, Licensed under Apache License, Version 2.0
