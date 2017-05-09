@@ -9,12 +9,12 @@ To use these fonts, simply download them to your computer and add them to your o
 
 
 | Character | Example | How to create it |
-| --------- | --------|-------- |
+| :-------: | :-----: | :--------------: |
 |  ![**th**](images/th.png)   |  **th**is |  `TH`   |
 |  ![**sh**](images/sh.png)   | **sh**ip |  `SH`   |
 |  ![**ch**](images/ch.png)   | **ch**at |  `CH` |
-| ![long e](images/longe.png) | th**e** | \``e`   (top right of your keyboard)|
-| ![long a](images/longa.png) | **a**te | \``a` |
+| ![long e](images/longe.png) | th**e** | \` `e` <br>  (backtick is on the <br> top right of your keyboard)|
+| ![long a](images/longa.png) | **a**te | \` `a` |
 | ![silent e](images/silente.png)    | littl**e** |  `E` |
 | ![silent k](images/silentk.png)    | kic**k** | `K` |
 
