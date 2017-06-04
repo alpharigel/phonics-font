@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Create your own phonics-based story</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+
+<h1>Create your own phonics-based story</h1>
+
+<p>Using the below tool, you can find nouns, verbs, prepositions, and other building blocks needed to 
+create your own phonics-based story. Simply select the sounds your child has learned so far, and the 
+table will show the words they can sound out.</p>
+
+<p>Below the top table are sight-words that are commonly included in beginning phonics programs in order
+to extend the vocabulary.
+</p>
+
+
+<body>
+ 
+<fieldset>
+  <legend>Select sounds known:</legend>
+  <label for="c-m">m</label><input type="checkbox" id="c-m">
+  <label for="c-s">s</label><input type="checkbox" id="c-s">
+  <label for="c-a">a</label><input type="checkbox" id="c-a">
+  <label for="c-e">e(long)</label><input type="checkbox" id="c-e">
+  <label for="c-t">t</label><input type="checkbox" id="c-t">
+  <label for="c-r">r</label><input type="checkbox" id="c-r">
+  <label for="c-d">d</label><input type="checkbox" id="c-d">
+  <label for="c-i">i</label><input type="checkbox" id="c-i">
+  <label for="c-th">th</label><input type="checkbox" id="c-th">
+  <label for="c-c">c</label><input type="checkbox" id="c-c">
+  <label for="c-o">o</label><input type="checkbox" id="c-o">
+</fieldset>
+ 
+<script>
+$( "input[type='checkbox']" ).checkboxradio();
+</script>
+ 
+</body>
+</html>
