@@ -6,6 +6,14 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script>
+  $(document).ready(function(){
+    $("#select-all").click(function(){
+       $( "input[type='checkbox']" ).prop('checked', true);
+    });
+});
+ </script>
 </head>
 <body>
 
@@ -25,7 +33,7 @@ to extend the vocabulary.
 <fieldset>
   <legend>Select sounds known:</legend>
   <button id="select-all">Select All</button>
-  <button id="select-none">Select None</button><br>
+  <button id="select-none">Select None</button><br><br>
   <label for="c-m">m</label><input type="checkbox" id="c-m">
   <label for="c-s">s</label><input type="checkbox" id="c-s">
   <label for="c-a">a</label><input type="checkbox" id="c-a">
