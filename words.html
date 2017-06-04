@@ -9,10 +9,7 @@
 
   <script>
   $(document).ready(function(){
-    $("#select-all").click(function(){
-       $( "input[type='checkbox']" ).prop('checked', true);
-    });
-});
+  });
  </script>
 </head>
 <body>
@@ -50,6 +47,9 @@ to extend the vocabulary.
 <script>
   $( "input[type='checkbox']" ).checkboxradio();
   $( "button" ).button();
+  $( "#select-all" ).click(function(){
+       $( "input[type='checkbox']" ).prop('checked', true);
+  });
 </script>
  
 </body>
