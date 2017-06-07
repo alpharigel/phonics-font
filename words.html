@@ -7,10 +7,6 @@
   <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-  <script>
-  $(document).ready(function(){
-  });
- </script>
 </head>
 <body>
 
@@ -29,8 +25,8 @@ to extend the vocabulary.
  
 <fieldset>
   <legend>Select sounds known:</legend>
-  <button id="select-all">Select All</button>
-  <button id="select-none">Select None</button><br><br>
+  <!-- <button id="select-all">Select All</button> -->
+  <!-- <button id="select-none">Select None</button><br><br> -->
   <label for="c-m">m</label><input type="checkbox" id="c-m">
   <label for="c-s">s</label><input type="checkbox" id="c-s">
   <label for="c-a">a</label><input type="checkbox" id="c-a">
@@ -43,13 +39,20 @@ to extend the vocabulary.
   <label for="c-c">c</label><input type="checkbox" id="c-c">
   <label for="c-o">o</label><input type="checkbox" id="c-o">
 </fieldset>
- 
+
+  <script>
+    <!-- pseduo code
+    1) initialize the sound variables to match the checkbox
+    2) when a checkbox changes state, set the approriate sound variale
+    3) hide and show words to match 
+    
+    
+    -->
+  </script>
+  
 <script>
   $( "input[type='checkbox']" ).checkboxradio();
   $( "button" ).button();
-  $( "#select-all" ).click(function(){
-       $( "input[type='checkbox']" ).prop('checked', true);
-  });
 </script>
  
 </body>
