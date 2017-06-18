@@ -1,5 +1,10 @@
 {
   "vocab" : {
+    "determiners" : [
+      "thē",
+      "an",
+      "a"
+    ],
     "nouns" : [
       "mat",
       "ram",
@@ -36,11 +41,6 @@
       "this",
       "that",
       "lot"
-    ],
-    "determiners" : [
-      "thē",
-      "an",
-      "a"
     ],
     "verbs" : [
       "mēēt",
