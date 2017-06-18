@@ -30,17 +30,17 @@
       "land",
       "lid"
     ],
-    "determiners" : [
-      "thē",
-      "an",
-      "a"
-    ],
     "pronouns" : [
       "mē",
       "it",
       "this",
       "that",
       "lot"
+    ],
+    "determiners" : [
+      "thē",
+      "an",
+      "a"
     ],
     "verbs" : [
       "mēēt",

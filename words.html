@@ -7,7 +7,7 @@
   <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-  <link href="material_colors_full.css" rel="stylesheet">
+  <link href="material_design_colors_full.css" rel="stylesheet">
 
   <style>
     body {
@@ -18,18 +18,61 @@
       //border: 1px solid lightgrey;
     }
 
-    td:nth-child(even) {background-color: #f2f2f2}
+    /* blue */
+    th:nth-child(odd) {background-color: #90caf9; color: black}
+    td:nth-child(odd) {background-color: #e3f2fd}
 
-    th:nth-child(even) {background-color: #f2f2f2}
+    /* amber */
+    th:nth-child(even) {background-color: #ffc107; color: black}
+    td:nth-child(even) {background-color: #fff8e1}
 
-    th:nth-child(even) {background-color: #f2f2f2}
 
+    /* blue */
+/*    th:nth-child(1) {background-color: #0d47a1; color: white}
+    td:nth-child(1) {background-color: #e3f2fd}
 
+    /* yellow */
+/*    th:nth-child(2) {background-color: #f57f17; color: white}
+    td:nth-child(2) {background-color: #fffde7}
+
+    /* deep-purple */
+/*    th:nth-child(3) {background-color: #311b92; color: white}
+    td:nth-child(3) {background-color: #ede7f6}
+
+    /* green */
+/*    th:nth-child(4) {background-color: #1b5e20; color: white}
+    td:nth-child(4) {background-color: #e8f5e9}
+
+    /* red */
+/*    th:nth-child(5) {background-color: #b71c1c; color: white}
+    td:nth-child(5) {background-color: #ffebee}
+
+    /* cyan  */
+/*    th:nth-child(6) {background-color: #006064; color: white}
+    td:nth-child(6) {background-color: #e0f7fa}
+
+    /* amber */
+/*    th:nth-child(7) {background-color: #ff6f00; color: white}
+    td:nth-child(7) {background-color: #fff8e1}
+
+    /* deep-orange */
+ /*    th:nth-child(5) {background-color: #bf360c; color: white}
+    td:nth-child(5) {background-color: #fbe9e7}
+
+    /* purple  */
+  /*  th:nth-child(8) {background-color: #aa00ff; color: white}
+    td:nth-child(8) {background-color: #f3e5f5}
+*/
 
     td {
       text-align: center;
-      padding: 3px;
+      padding-bottom: 3px;
+      padding-top: 3px;
     }
+     th {
+       padding-bottom: 6px;
+       padding-top: 6px
+     }
 
     table {
       border-collapse: collapse;
@@ -72,16 +115,6 @@ to extend the vocabulary.
 <br>
 
     <table>
-      <tr>
-        <th>nouns</th>
-        <th>determiners</th>
-        <th>pronouns</th>
-        <th>verbs</th>
-        <th>adjectives</th>
-        <th>adverbs</th>
-        <th>prepositions</th>
-        <th>conjunctions</th>
-      </tr>
     </table>
 
   <script>
@@ -95,13 +128,16 @@ to extend the vocabulary.
     $.getJSON("vocab.json",
       function(json) {
         var maxrows = 0;
+        var tr;
+        tr = $('<tr/>')
         for (key in json.vocab) {
           var n = json.vocab[key].length;
           maxrows = maxrows < n ? n : maxrows;
+          tr.append("<th>" + key + "</th>")
         }
+        $('table').append(tr);
         console.log("Maximum rows " + maxrows);
 
-        var tr;
         for (var ii = 0; ii < maxrows; ii++) {
           tr = $('<tr/>')
           for (key in json.vocab) {
