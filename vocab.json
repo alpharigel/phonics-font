@@ -8,31 +8,31 @@
       "sam",
       "sēat",
       "mēat",
-      "ēar"
-      "mitt"
-      "sack"
-      "cat"
-      "rack"
-      "mom"
-      "rod"
-      "sock"
-      "rock"
-      "man"
-      "ant"
-      "fan"
-      "fēēt"
-      "fin"
-      "fun"
-      "mud"
-      "sun"
-      "nut"
-      "sand"
-      "land"
+      "ēar",
+      "mitt",
+      "sack",
+      "cat",
+      "rack",
+      "mom",
+      "rod",
+      "sock",
+      "rock",
+      "man",
+      "ant",
+      "fan",
+      "fēēt",
+      "fin",
+      "fun",
+      "mud",
+      "sun",
+      "nut",
+      "sand",
+      "land",
       "lid"
     ],
     "determiners" : [
-      "thē"
-      "an"
+      "thē",
+      "an",
       "a"
     ],
     "pronouns" : [
@@ -49,24 +49,24 @@
       "sēē",
       "am",
       "ēat",
-      "rēad"
+      "rēad",
       "sit",
-      "is"
-      "sēēm"
-      "rid"
-      "can"
-      "run"
-      "fēēd"
-      "fill"
-      "lick"
+      "is",
+      "sēēm",
+      "rid",
+      "can",
+      "run",
+      "fēēd",
+      "fill",
+      "lick",
       "lock"
     ],
     "adjectives" : [
-      "sad"
-      "mad"
-      "sick"
-      "fat"
-      "fit"
+      "sad",
+      "mad",
+      "sick",
+      "fat",
+      "fit",
       "little"
 
     ],
@@ -74,8 +74,8 @@
       "not"
     ],
     "prepositions" : [
-      "at"
-      "on"
+      "at",
+      "on",
       "in"
     ],
     "conjunctions" : [

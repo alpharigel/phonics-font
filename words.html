@@ -3,17 +3,46 @@
 <head>
   <meta charset="utf-8">
   <title>Create your own phonics-based story</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+  <link href="material_colors_full.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Verdana, Geneva, sans-serif;
+    }
+
+    table, td, th {
+      //border: 1px solid lightgrey;
+    }
+
+    td:nth-child(even) {background-color: #f2f2f2}
+
+    th:nth-child(even) {background-color: #f2f2f2}
+
+    th:nth-child(even) {background-color: #f2f2f2}
+
+
+
+    td {
+      text-align: center;
+      padding: 3px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
 
 <h1>Create your own phonics-based story</h1>
 
-<p>Using the below tool, you can find nouns, verbs, prepositions, and other building blocks needed to 
-create your own phonics-based story. Simply select the sounds your child has learned so far, and the 
+<p>Using the below tool, you can find nouns, verbs, prepositions, and other building blocks needed to
+create your own phonics-based story. Simply select the sounds your child has learned so far, and the
 table will show the words they can sound out.</p>
 
 <p>Below the top table are sight-words that are commonly included in beginning phonics programs in order
@@ -22,7 +51,7 @@ to extend the vocabulary.
 
 
 <body>
- 
+
 <fieldset>
   <legend>Select sounds known:</legend>
   <!-- <button id="select-all">Select All</button> -->
@@ -39,19 +68,25 @@ to extend the vocabulary.
   <label for="c-c">c</label><input type="checkbox" id="c-c">
   <label for="c-o">o</label><input type="checkbox" id="c-o">
 </fieldset>
-  
+
+<br>
+
     <table>
       <tr>
         <th>nouns</th>
-      </tr>
-      <tr>
-        <td>stuff</td>
+        <th>determiners</th>
+        <th>pronouns</th>
+        <th>verbs</th>
+        <th>adjectives</th>
+        <th>adverbs</th>
+        <th>prepositions</th>
+        <th>conjunctions</th>
       </tr>
     </table>
 
   <script>
   </script>
-  
+
 <script>
   $( "input[type='checkbox']" ).checkboxradio();
   $( "button" ).button();
@@ -59,17 +94,29 @@ to extend the vocabulary.
   $(document).ready(function() {
     $.getJSON("vocab.json",
       function(json) {
+        var maxrows = 0;
+        for (key in json.vocab) {
+          var n = json.vocab[key].length;
+          maxrows = maxrows < n ? n : maxrows;
+        }
+        console.log("Maximum rows " + maxrows);
+
         var tr;
-        var part = json.vocab.nouns;
-        for (var i = 0; i < part.length; i++) {
-          tr = $('<tr/>');
-          tr.append("<td>" + part[i] + "</td>");
+        for (var ii = 0; ii < maxrows; ii++) {
+          tr = $('<tr/>')
+          for (key in json.vocab) {
+              if (ii < json.vocab[key].length) {
+                tr.append("<td>" + json.vocab[key][ii] + "</td>")
+              } else {
+                tr.append("<td></td>")
+              }
+          }
           $('table').append(tr);
         }
       }
     );
   });
 </script>
- 
+
 </body>
 </html>
