@@ -39,6 +39,15 @@ to extend the vocabulary.
   <label for="c-c">c</label><input type="checkbox" id="c-c">
   <label for="c-o">o</label><input type="checkbox" id="c-o">
 </fieldset>
+  
+    <table>
+      <tr>
+        <th>nouns</th>
+      </tr>
+      <tr>
+        <td>stuff</td>
+      </tr>
+    </table>
 
   <script>
     <!-- pseduo code
@@ -53,6 +62,20 @@ to extend the vocabulary.
 <script>
   $( "input[type='checkbox']" ).checkboxradio();
   $( "button" ).button();
+
+  $(document).ready(function() {
+    $.getJSON("vocab.json",
+      function(json) {
+        var tr;
+        var part = json.vocab.nouns;
+        for (var i = 0; i < part.length; i++) {
+          tr = $('<tr/>');
+          tr.append("<td>" + part[i] + "</td>");
+          $('table').append(tr);
+        }
+      }
+    );
+  });
 </script>
  
 </body>
