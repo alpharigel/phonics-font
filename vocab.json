@@ -1,89 +1,85 @@
 {
   "word list" : {
     "nouns" : [
-      "",
+      "mat",
+      "ram",
+      "rat",
+      "seed",
+      "sam",
+      "sēat",
+      "mēat",
+      "ēar"
+      "mitt"
+      "sack"
+      "cat"
+      "rack"
+      "mom"
+      "rod"
+      "sock"
+      "rock"
+      "man"
+      "ant"
+      "fan"
+      "fēēt"
+      "fin"
+      "fun"
+      "mud"
+      "sun"
+      "nut"
+      "sand"
+      "land"
+      "lid"
     ],
-    "determiners" : [    
+    "determiners" : [
       "thē"
+      "an"
+      "a"
     ],
-    "pronouns" : [    
+    "pronouns" : [
       "mē",
-      
-    ], 
-    "verbs" : [    
+      "it",
+      "this",
+      "that",
+      "lot"
     ],
-    "adjectives" : [    
+    "verbs" : [
+      "mēēt",
+      "sēt",
+      "sat",
+      "sēē",
+      "am",
+      "ēat",
+      "rēad"
+      "sit",
+      "is"
+      "sēēm"
+      "rid"
+      "can"
+      "run"
+      "fēēd"
+      "fill"
+      "lick"
+      "lock"
     ],
-    "adverbs" : [    
+    "adjectives" : [
+      "sad"
+      "mad"
+      "sick"
+      "fat"
+      "fit"
+      "little"
+
     ],
-    "prepositions" : [    
+    "adverbs" : [
+      "not"
     ],
-    "conjunctions" : [    
-    ]  
+    "prepositions" : [
+      "at"
+      "on"
+      "in"
+    ],
+    "conjunctions" : [
+      "and"
+    ]
   }
 }
-
-mēēt
-mat
-sēt
-sat
-am
-sēē
-ram
-ēat
-rat
-sēēd
-sam
-sēat
-sad
-mad
-mēat
-rēad
-sēē
-ēar
-at
-it
-sit
-is
-sēēm
-this
-that
-mitt
-rid
-sack
-cat
-sick
-rack
-mom
-rod
-sock
-rock
-on
-not
-can
-in
-an
-man
-ant
-fat
-fan
-fēēt
-fin
-fun
-run
-and
-fit
-mud
-sun
-fēēd
-nut
-not
-sand
-land
-little
-fill
-lot
-lid
-sick
-lick
-lock
