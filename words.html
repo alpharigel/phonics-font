@@ -101,17 +101,17 @@ to extend the vocabulary.
   <legend>Select sounds known:</legend>
   <!-- <button id="select-all">Select All</button> -->
   <!-- <button id="select-none">Select None</button><br><br> -->
-  <label for="c-m">m</label><input type="checkbox" id="c-m">
+  <!-- <label for="c-m">m</label><input type="checkbox" id="c-m">
   <label for="c-s">s</label><input type="checkbox" id="c-s">
   <label for="c-a">a</label><input type="checkbox" id="c-a">
-  <label for="c-e">e(long)</label><input type="checkbox" id="c-e">
+  <label for="c-ē">ē</label><input type="checkbox" id="c-ē">
   <label for="c-t">t</label><input type="checkbox" id="c-t">
   <label for="c-r">r</label><input type="checkbox" id="c-r">
   <label for="c-d">d</label><input type="checkbox" id="c-d">
   <label for="c-i">i</label><input type="checkbox" id="c-i">
   <label for="c-th">th</label><input type="checkbox" id="c-th">
   <label for="c-c">c</label><input type="checkbox" id="c-c">
-  <label for="c-o">o</label><input type="checkbox" id="c-o">
+  <label for="c-o">o</label><input type="checkbox" id="c-o"-->
 </fieldset>
 
 <br>
@@ -123,37 +123,108 @@ to extend the vocabulary.
   </script>
 
 <script>
+  var letters = ["m", "s", "a", "ē", "t", "r", "d", "i", "th", "c", "o",
+    "n", "f", "u", "l", "w", "g", "I", "sh", "ā", "h", "k", "ō", "v",
+    "p", "ar", "ch", "e", "b", "ing", "ī", "y", "er", "oo", "j", "wh",
+    "ÿ", "ū", "qu", "x", "z", "ea", "ai", "ou"]
+
+    //$(document).ready(function() {
+
+    for ( var ii = 0; ii < letters.length; ii++ ) {
+      l = letters[ii]
+      $( "fieldset" ).append( `<label for="c-${l}">${l}</label>` )
+      $( "fieldset" ).append( `<input type="checkbox" id="c-${l}">` )
+    }
+
   $( "input[type='checkbox']" ).checkboxradio();
   $( "button" ).button();
 
-  $(document).ready(function() {
-    $.getJSON("vocab.json",
-      function(json) {
-        var maxrows = 0;
-        var tr;
+//});
+
+  //function main() { // global scoping  function
+    var ss = []; // global variable to hold all selected sounds
+
+    // get reference to element containing toppings checkboxes
+    //var el = document.getElementById('toppings');
+
+    // get reference to input elements in toppings container element
+    var checks = document.getElementsByTagName('input');
+
+    // this takes time to load, but since the load should be faster
+    // than a user can click, lets not worry about that right now
+    var jsondata = [];
+
+    function updatecheck( t ) {
+      var id = t.id;
+      var letter = id.slice( 2, id.length )
+      ss[letter] = t.checked;
+      console.log( "changed " + id + " to " + ss[letter] )
+      displaytable( jsondata )
+    }
+
+    // assign function to onclick property of each checkbox
+    for (var ii=0, len=checks.length; ii<len; ii++) {
+        if ( checks[ii].type === 'checkbox' ) {
+            checks[ii].onclick = function() { updatecheck( this )};
+        }
+    }
+    function initchecks() {
+      for (var ii=0, len=checks.length; ii<len; ii++) {
+         if ( checks[ii].type === 'checkbox' ) {
+             updatecheck( checks[ii] );
+         }
+      }
+    }
+
+    function displaytable( json ) {
+      if ( json.length == 0 ) {
+        console.log( "empty json data sent" )
+        return
+      }
+      var maxrows = 0;
+      var tr;
+      tr = $('<tr/>')
+      $('table').empty();
+
+      for (key in json.vocab) {
+        var n = json.vocab[key].length;
+        maxrows = maxrows < n ? n : maxrows;
+        tr.append("<th>" + key + "</th>")
+      }
+      $('table').append(tr);
+      console.log("Maximum rows " + maxrows);
+
+      for (var ii = 0; ii < maxrows; ii++) {
         tr = $('<tr/>')
         for (key in json.vocab) {
-          var n = json.vocab[key].length;
-          maxrows = maxrows < n ? n : maxrows;
-          tr.append("<th>" + key + "</th>")
+            if (ii < json.vocab[key].length) {
+               var word = json.vocab[key][ii];
+               ccs = word.split("");
+               //console.log( ccs[0] + " is " + ss[ccs[0]] );
+               if ( ccs.every( function( cc ) { return ss[cc] } ) ) {
+                 tr.append("<td>" + json.vocab[key][ii] + "</td>")
+               } else {
+                 //console.log( word + " not found in " + ss.length)
+                 tr.append("<td></td>")
+               }
+             } else {
+               tr.append("<td></td>")
+            }
         }
         $('table').append(tr);
-        console.log("Maximum rows " + maxrows);
-
-        for (var ii = 0; ii < maxrows; ii++) {
-          tr = $('<tr/>')
-          for (key in json.vocab) {
-              if (ii < json.vocab[key].length) {
-                tr.append("<td>" + json.vocab[key][ii] + "</td>")
-              } else {
-                tr.append("<td></td>")
-              }
-          }
-          $('table').append(tr);
-        }
       }
-    );
+    }
+
+  //};
+
+  $(document).ready(function() {
+    $.getJSON("vocab.json", function(json) {
+      jsondata = json;
+      initchecks();
+      displaytable( jsondata );
+    })
   });
+
 </script>
 
 </body>
