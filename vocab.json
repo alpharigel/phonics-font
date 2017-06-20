@@ -3,25 +3,26 @@
     "determiners" : [
       "thē",
       "an",
-      "a"
+      "a",
+      "nō"
     ],
     "nouns" : [
       "mat",
       "ram",
       "rat",
-      "seed",
+      "sēēd",
       "sam",
       "sēat",
-      "mēat",
+      "mēAt",
       "ēar",
       "mitt",
-      "sack",
+      "sacK",
       "cat",
-      "rack",
+      "racK",
       "mom",
       "rod",
-      "sock",
-      "rock",
+      "socK",
+      "rocK",
       "man",
       "ant",
       "fan",
@@ -33,14 +34,42 @@
       "nut",
       "sand",
       "land",
-      "lid"
+      "lid",
+      "lucK",
+      "ducK",
+      "rug",
+      "rag",
+      "log",
+      "seAt",
+      "shack",
+      "fish",
+      "tāil",
+      "dish",
+      "gāme",
+      "cow",
+      "gātE",
+      "hill",
+      "nōse",
+      "cākE",
+      "tēēth",
+      "lākE",
+      "ham",
+      "kitten",
+      "gōAt",
+      "cōAt",
+      "hats"
     ],
     "pronouns" : [
       "mē",
       "it",
       "this",
       "that",
-      "lot"
+      "lot",
+      "wē",
+      "I",
+      "shē",
+      "him",
+      "hē"
     ],
     "verbs" : [
       "mēēt",
@@ -48,8 +77,8 @@
       "sat",
       "sēē",
       "am",
-      "ēat",
-      "rēad",
+      "ēAt",
+      "rēAd",
       "sit",
       "is",
       "sēēm",
@@ -58,28 +87,75 @@
       "run",
       "fēēd",
       "fill",
-      "lick",
-      "lock"
+      "licK",
+      "locK",
+      "win",
+      "will",
+      "got",
+      "shot",
+      "said",
+      "feel",
+      "wish",
+      "ātE",
+      "mādE",
+      "did",
+      "wow",
+      "hātE",
+      "has",
+      "kicK",
+      "nod",
+      "licKs",
+      "hits",
+      "hug",
+      "was",
+      "kiss",
+      "gō",
+      "tākE",
+      "tāmE",
+      "has",
+      "sāvE",
+      "givE",
+      "havE",
+      "nēēd",
+      "gāvE"
     ],
     "adjectives" : [
       "sad",
       "mad",
-      "sick",
+      "sicK",
       "fat",
       "fit",
-      "little"
-
+      "littlE",
+      "lātE",
+      "hot",
+      "sāmE",
+      "ōld",
+      "cōld"
     ],
     "adverbs" : [
-      "not"
+      "not",
+      "now"
     ],
     "prepositions" : [
       "at",
       "on",
-      "in"
+      "in",
+      "with",
+      "of",
+      "fōr"
     ],
     "conjunctions" : [
-      "and"
+      "and",
+      "if",
+      "ōr"
     ]
-  }
+  },
+  "sight words": [
+    "was",
+    "to",
+    "of",
+    "said",
+    "a",
+    "I"
+  ]
 }
