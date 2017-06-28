@@ -4,8 +4,14 @@
   <meta charset="utf-8">
   <title>Create your own phonics-based story</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!--script src="//code.jquery.com/jquery-1.12.4.js"></script-->
+  <!--script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script-->
+
+  <link rel="stylesheet" href="themes/mobiletheme1.min.css" />
+  <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
   <link href="material_design_colors_full.css" rel="stylesheet">
 
@@ -24,6 +30,12 @@
 
     table, td, th {
       //border: 1px solid lightgrey;
+    }
+
+    p.outstory {
+      font-family: "Phonic Dots Underline";
+      font-size: 200%;
+      align-items: center;
     }
 
     /* Simple stripe looks best right now, so going wiht that */
@@ -107,27 +119,19 @@
 <!--p>Below the top table are sight-words that are commonly included in beginning phonics programs in order
 to extend the vocabulary.
 </p-->
+<form>
 
-
-<body>
-
-<fieldset>
+<fieldset data-role="controlgroup" data-type="horizontal">
   <legend>Select sounds known:</legend>
-  <!-- <button id="select-all">Select All</button> -->
-  <!-- <button id="select-none">Select None</button><br><br> -->
-  <!-- <label for="c-m">m</label><input type="checkbox" id="c-m">
-  <label for="c-s">s</label><input type="checkbox" id="c-s">
-  <label for="c-a">a</label><input type="checkbox" id="c-a">
-  <label for="c-ē">ē</label><input type="checkbox" id="c-ē">
-  <label for="c-t">t</label><input type="checkbox" id="c-t">
-  <label for="c-r">r</label><input type="checkbox" id="c-r">
-  <label for="c-d">d</label><input type="checkbox" id="c-d">
-  <label for="c-i">i</label><input type="checkbox" id="c-i">
-  <label for="c-th">th</label><input type="checkbox" id="c-th">
-  <label for="c-c">c</label><input type="checkbox" id="c-c">
-  <label for="c-o">o</label><input type="checkbox" id="c-o"-->
 </fieldset>
-
+<br>
+<p id="outstory" class="outstory">
+</p>
+<button onclick="printStory()" type="button">Print Story</button>
+<br>
+  <label for="userstory">Compose your story</label>
+  <textarea name="userstory" id="userstory" oninput="updateStory()"></textarea>
+</form>
 <br>
 
     <table>
@@ -151,8 +155,14 @@ to extend the vocabulary.
     }
 
   $( "input[type='checkbox']" ).checkboxradio();
-  $( "button" ).button();
 
+  $( "button" ).button();
+  //$( "textarea" ).textarea();
+
+
+  $( ".userstory" ).textinput({
+    autogrow: true
+  });
 //});
 
   //function main() { // global scoping  function
@@ -169,6 +179,17 @@ to extend the vocabulary.
     // this takes time to load, but since the load should be faster
     // than a user can click, lets not worry about that right now
     var jsondata = [];
+
+    var mystory = "";
+    function updateStory() {
+      mystory = document.getElementById("userstory").value;
+      document.getElementById("outstory").innerHTML = mystory;
+    }
+
+    function printStory() {
+      var x = window.open();
+      x.document.write('<p style="font-family:Phonic Dots Underline;font-size: 200%;">' + mystory + '</p>');
+    }
 
     function updatecheck( t ) {
       var id = t.id;
