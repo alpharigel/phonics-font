@@ -32,8 +32,13 @@
       //border: 1px solid lightgrey;
     }
 
+    @font-face {
+      font-family: "PDU";
+      src: url('phonicdotsunderline.ttf') format('truetype');
+    }
+
     p.outstory {
-      font-family: "Phonic Dots Underline";
+      font-family: "PDU";
       font-size: 200%;
       align-items: center;
     }
@@ -127,10 +132,10 @@ to extend the vocabulary.
 <br>
 <p id="outstory" class="outstory">
 </p>
-<button onclick="printStory()" type="button">Print Story</button>
 <br>
   <label for="userstory">Compose your story</label>
-  <textarea name="userstory" id="userstory" oninput="updateStory()"></textarea>
+  <textarea name="userstory" style="float:left;" id="userstory" oninput="updateStory()" ></textarea>
+  <a onclick="printStory()"  class="ui-btn ui-icon-action ui-btn-inline">Print Story</a><br>
 </form>
 <br>
 

@@ -40,7 +40,7 @@
       "rug",
       "rag",
       "log",
-      "seAt",
+      "sēAt",
       "shack",
       "fish",
       "tāil",
@@ -57,7 +57,24 @@
       "kitten",
       "gōAt",
       "cōAt",
-      "hats"
+      "hats",
+      "mop",
+      "cop",
+      "top",
+      "car",
+      "tar",
+      "hōpE",
+      "pot",
+      "dog",
+      "fog",
+      "log",
+      "shēēp",
+      "park",
+      "shop",
+      "girl",
+      "hōmE",
+      "ship",
+      "farm"
     ],
     "pronouns" : [
       "mē",
@@ -69,7 +86,8 @@
       "I",
       "shē",
       "him",
-      "hē"
+      "hē",
+      "us"
     ],
     "verbs" : [
       "mēēt",
@@ -117,7 +135,14 @@
       "givE",
       "havE",
       "nēēd",
-      "gāvE"
+      "gāvE",
+      "hop",
+      "arE",
+      "ran",
+      "hōpE",
+      "chop",
+      "cāmE"
+
     ],
     "adjectives" : [
       "sad",
@@ -130,11 +155,15 @@
       "hot",
       "sāmE",
       "ōld",
-      "cōld"
+      "cōld",
+      "ēAch"
     ],
     "adverbs" : [
       "not",
-      "now"
+      "now",
+      "far",
+      "nēAr",
+      "sō"
     ],
     "prepositions" : [
       "at",
@@ -156,6 +185,7 @@
     "of",
     "said",
     "a",
-    "I"
+    "I",
+    "girl"
   ]
 }
