@@ -74,7 +74,19 @@
       "girl",
       "hōmE",
       "ship",
-      "farm"
+      "farm",
+      "arm",
+      "charm",
+      "rāin",
+      "rōad",
+      "bug",
+      "pig",
+      "bit",
+      "chicKs",
+      "lēAf",
+      "tub",
+      "bītE",
+      "līkE"
     ],
     "pronouns" : [
       "mē",
@@ -87,7 +99,9 @@
       "shē",
       "him",
       "hē",
-      "us"
+      "us",
+      "thōse",
+      "them"
     ],
     "verbs" : [
       "mēēt",
@@ -141,8 +155,18 @@
       "ran",
       "hōpE",
       "chop",
-      "cāmE"
-
+      "cāmE",
+      "do",
+      "went",
+      "let",
+      "get",
+      "pet",
+      "sent",
+      "eating",
+      "getting",
+      "bē",
+      "fishing",
+      "slēēp"
     ],
     "adjectives" : [
       "sad",
@@ -156,14 +180,23 @@
       "sāmE",
       "ōld",
       "cōld",
-      "ēAch"
+      "ēAch",
+      "wet",
+      "down",
+      "red",
+      "big"
     ],
     "adverbs" : [
       "not",
       "now",
       "far",
       "nēAr",
-      "sō"
+      "sō",
+      "then",
+      "therE",
+      "well",
+      "how",
+      "mōrE"
     ],
     "prepositions" : [
       "at",
@@ -176,7 +209,8 @@
     "conjunctions" : [
       "and",
       "if",
-      "ōr"
+      "ōr",
+      "but"
     ]
   },
   "sight words": [
@@ -186,6 +220,7 @@
     "said",
     "a",
     "I",
-    "girl"
+    "girl",
+    "do"
   ]
 }
