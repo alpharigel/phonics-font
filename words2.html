@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Create your own phonics-based story</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!--script src="//code.jquery.com/jquery-1.12.4.js"></script-->
+  <!--script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script-->
+
+  <link rel="stylesheet" href="themes/mobiletheme1.min.css" />
+  <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <link href="material_design_colors_full.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Verdana, Geneva, sans-serif;
+    }
+
+    /* l { list-style-type: none; overflow: hidden; width:200px; }
+    ul li { float:left; width: 100px; }
+    */
+    /*ul {
+      display: inline-table;
+
+     };
+    li {
+       display: inline-block;
+     };*/
+
+    .box {
+      display: inline-block;
+      margin: 1em;
+    }
+
+    span.silent {
+      font-size: 75%
+    }
+
+    span.last {
+      font-weight: bold;
+    }
+
+
+    table, td, th {
+      //border: 1px solid lightgrey;
+    }
+
+    @font-face {
+      font-family: "PDU";
+      src: url('fonts/phonicsdotunderlinecaps.ttf') format('truetype');
+    }
+
+    p.outstory {
+      font-family: "PDU";
+      font-size: 200%;
+      align-items: center;
+    }
+
+    /* Simple stripe looks best right now, so going wiht that */
+
+    /* blue */
+    span.th:nth-of-type(4n+1) {background-color: #90caf9; color: black}
+    span.td:nth-of-type(4n+2) {background-color: #e3f2fd}
+
+    /* amber */
+    span.th:nth-of-type(4n+3) {background-color: #ffc107; color: black}
+    span.td:nth-of-type(4n) {background-color: #fff8e1}
+
+
+    /* blue */
+/*    th:nth-child(1) {background-color: #0d47a1; color: white}
+    td:nth-child(1) {background-color: #e3f2fd}
+
+    /* yellow */
+/*    th:nth-child(2) {background-color: #f57f17; color: white}
+    td:nth-child(2) {background-color: #fffde7}
+
+    /* deep-purple */
+/*    th:nth-child(3) {background-color: #311b92; color: white}
+    td:nth-child(3) {background-color: #ede7f6}
+
+    /* green */
+/*    th:nth-child(4) {background-color: #1b5e20; color: white}
+    td:nth-child(4) {background-color: #e8f5e9}
+
+    /* red */
+/*    th:nth-child(5) {background-color: #b71c1c; color: white}
+    td:nth-child(5) {background-color: #ffebee}
+
+    /* cyan  */
+/*    th:nth-child(6) {background-color: #006064; color: white}
+    td:nth-child(6) {background-color: #e0f7fa}
+
+    /* amber */
+/*    th:nth-child(7) {background-color: #ff6f00; color: white}
+    td:nth-child(7) {background-color: #fff8e1}
+
+    /* deep-orange */
+ /*    th:nth-child(5) {background-color: #bf360c; color: white}
+    td:nth-child(5) {background-color: #fbe9e7}
+
+    /* purple  */
+  /*  th:nth-child(8) {background-color: #aa00ff; color: white}
+    td:nth-child(8) {background-color: #f3e5f5}
+*/
+
+    td {
+      text-align: center;
+      padding-bottom: 3px;
+      padding-top: 3px;
+    }
+     th {
+       padding-bottom: 6px;
+       padding-top: 6px
+     }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #vocabs {
+      -moz-column-width: 80px;
+      -webkit-column-width: 80px;
+      column-width: 80px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Create your own phonics-based story</h1>
+
+<p>
+  Using the below tool, you can find nouns, verbs, prepositions, and other
+  building blocks needed to create your own phonics-based story.
+</p>
+
+<p>
+  Simply select the sounds your child has learned so far, and the
+  table will show the words they can sound out.
+</p>
+
+<!--p>Below the top table are sight-words that are commonly included in beginning phonics programs in order
+to extend the vocabulary.
+</p-->
+<form>
+
+<fieldset data-role="controlgroup" data-type="horizontal">
+  <legend>Select sounds known:</legend>
+  <p>
+</fieldset>
+<!--
+<button onclick="selectAll()">Select All</button>
+<button onclick="selectNone()">Select None</button>
+<br>
+-->
+<p id="outstory" class="outstory">
+</p>
+<br>
+  <label for="userstory">Compose your story</label>
+  <textarea name="userstory" style="float:left;" id="userstory" oninput="updateStory()" ></textarea>
+  <a onclick="printStory()"  class="ui-btn ui-icon-action ui-btn-inline">Print Story</a><br>
+</form>
+<br>
+
+<div id="vocabs">
+    <span class="th">Determiners</span>
+    <span class="td" id="determiners"></span>
+    <span class="th"><br>Nouns</span>
+    <span class="td" class="td" id="nouns"></span>
+    <span class="th"><br>Pronouns</span>
+    <span class="td" id="pronouns"></span>
+    <span class="th"><br>Verbs</span>
+    <span class="td" id="verbs"></span>
+    <span class="th"><br>Adjectives</span>
+    <span class="td" id="adjectives"></span>
+    <span class="th"><br>Adverbs</span>
+    <span class="td" id="adverbs"></span>
+    <span class="th"><br>Prepositions</span>
+    <span class="td" id="prepositions"></span>
+    <span class="th"><br>Conjunctions</span>
+    <span class="td" id="conjunctions"></span>
+</div>
+<br>
+<br>
+
+  <script>
+  </script>
+
+<script>
+  var letters = ["a", "m", "s", "ē", "t", "r", "d", "i", "th", "c", "o",
+    "n", "f", "u", "l", "w", "g", "sh", "ā", "h", "k", "ō", "v",
+    "p", "ar", "ch", "e", "b", "ing", "ī", "y", "er", "oo", "j", "wh",
+    "ÿ", "ū", "qu", "x", "z", "ea", "ai", "ou"]
+
+    //$(document).ready(function() {
+
+    for ( var ii = 0; ii < letters.length; ii++ ) {
+      l = letters[ii]
+      $( "fieldset" ).append( `<label for="c-${l}">${l}</label>` )
+      $( "fieldset" ).append( `<input type="checkbox" id="c-${l}">` )
+    }
+
+  $( "input[type='checkbox']" ).checkboxradio();
+
+  $( "button" ).button();
+  //$( "textarea" ).textarea();
+
+
+  $( ".userstory" ).textinput({
+    autogrow: true
+  });
+//});
+
+  //function main() { // global scoping  function
+    var ss = []; // global variable to hold all selected sounds
+
+    var lastc = "";
+
+    // get reference to element containing toppings checkboxes
+    //var el = document.getElementById('toppings');
+
+    // get reference to input elements in toppings container element
+    var checks = document.getElementsByTagName('input');
+
+    // this takes time to load, but since the load should be faster
+    // than a user can click, lets not worry about that right now
+    var jsondata = [];
+
+    var mystory = "";
+    function updateStory() {
+      mystory = document.getElementById("userstory").value;
+      document.getElementById("outstory").innerHTML = mystory;
+    }
+
+    function printStory() {
+      var x = window.open();
+      x.document.write('<p style="font-family:Phonic Dots Underline;font-size: 200%;">' + mystory + '</p>');
+    }
+
+    function updatecheck( t ) {
+      var id = t.id;
+      var letter = id.slice( 2, id.length )
+      ss[letter] = t.checked;
+      if (t.checked) {
+        lastc = letter;
+      } else {
+        lastc = "";
+      }
+      //console.log( "changed " + id + " to " + ss[letter] )
+    }
+
+    // assign function to onclick property of each checkbox
+    for (var ii=0, len=checks.length; ii<len; ii++) {
+        if ( checks[ii].type === 'checkbox' ) {
+            checks[ii].onclick = function() {
+              updatecheck( this );
+              displaylist( jsondata )
+            };
+        }
+    }
+
+    function initchecks() {
+      for (var ii=0, len=checks.length; ii<len; ii++) {
+         if ( checks[ii].type === 'checkbox' ) {
+             updatecheck( checks[ii] );
+         }
+      }
+    }
+
+    function selectAll() {
+      for (var ii=0, len=checks.length; ii<len; ii++) {
+         if ( checks[ii].type === 'checkbox' ) {
+           $('#'+checks[ii].id).prop("checked", true)
+         }
+       }
+    }
+    function selectNone() {
+      for (var ii=0, len=checks.length; ii<len; ii++) {
+         if ( checks[ii].type === 'checkbox' ) {
+           checks[ii].select(false)
+         }
+       }
+    }
+
+    function displaylist( json ) {
+      if ( json.length == 0 ) {
+        console.log( "empty json data sent" )
+        return
+      }
+
+      for (key in json.vocab) {
+        var text = "";
+        $('#' + key).empty()
+
+        for ( var ii in json.vocab[key] ){
+          var word = json.vocab[key][ii]
+          var spltt = word.split("");
+          var nspltt = [];
+          var n = spltt.length;
+
+
+          // deal with the dual sounds
+          for (var jj = 0; jj < n; jj++ ) {
+            var cc = spltt[jj];
+
+            if (( cc == "t" || cc == "s" || cc == "c" )  && jj + 1 < n && spltt[jj+1] == "h" ) {
+              cc = cc + "h";
+              jj++;
+            } else if ( cc == "a"  && jj + 1 < n && spltt[jj+1] == "r"  ) {
+              cc = "ar";
+              jj++;
+            }
+            nspltt.push( cc );
+          }
+
+          var hit = nspltt.filter( function( c ) { return c.toLowerCase() == c } );
+
+          if ( word == "I" ) {
+            if ( ss["i"] ) {
+              $( '#' + key).append( "  I" )
+            }
+          } else if ( hit.every( function( c ) { return ss[c] } ) ) {
+
+            // make the silent letters smaller
+            nword = nspltt.map( function( c ) {
+              if ( c.toUpperCase() == c ){
+                return `<span class="silent">${c}</span>`
+              } else if ( lastc == c ) {
+                return `<span class="last">${c}</span>`
+              } else {
+                return c;
+              }
+            });
+            $('#' + key).append( "<br>" + nword.join("").toLowerCase() )
+          }
+        }
+      }
+    }
+
+    function displaytable( json ) {
+      if ( json.length == 0 ) {
+        console.log( "empty json data sent" )
+        return
+      }
+      var tr;
+      tr = $('<tr/>')
+      $('table').empty();
+
+      for (key in json.vocab) {
+        tr.append("<th>" + key + "</th>")
+      }
+      $('table').append(tr);
+      //console.log("Maximum rows " + maxrows);
+
+      // filter the table and add to display list
+      var todisp = []
+      var maxrows = 0
+      for (key in json.vocab) {
+        var count = 0
+        todisp[key] = []
+        for ( var ii in json.vocab[key] ){
+          var word = json.vocab[key][ii]
+          var spltt = word.split("");
+          var nspltt = [];
+          var n = spltt.length;
+
+          // deal with the dual sounds
+          for (var jj = 0; jj < n; jj++ ) {
+            var cc = spltt[jj];
+
+            if (( cc == "t" || cc == "s" || cc == "c" )  && jj + 1 < n && spltt[jj+1] == "h" ) {
+              cc = cc + "h";
+              jj++;
+            } else if ( cc == "a"  && jj + 1 < n && spltt[jj+1] == "r"  ) {
+              cc = "ar";
+              jj++;
+            }
+            nspltt.push( cc );
+          }
+
+          var hit = nspltt.filter( function( c ) { return c.toLowerCase() == c } );
+
+          if ( word == "I" ) {
+            if ( ss["i"] ) {
+              todisp[key].push( "I" )
+              count++
+            }
+          } else if ( hit.every( function( c ) { return ss[c] } ) ) {
+
+            // make the silent letters smaller
+            nword = nspltt.map( function( c ) {
+              if ( c.toUpperCase() == c ){
+                return `<span class="silent">${c}</span>`
+              } else if ( lastc == c ) {
+                return `<span class="last">${c}</span>`
+              } else {
+                return c;
+              }
+            });
+            todisp[key].push( nword.join("").toLowerCase() )
+            count++
+          }
+        }
+        maxrows = maxrows < count ? count : maxrows;
+      };
+      // display the filtered table
+      //console.log( "Max rows " + maxrows)
+
+      for (var ii = 0; ii < maxrows; ii++) {
+        var tr = $('<tr/>')
+        for (key in todisp) {
+            if (ii < todisp[key].length) {
+               var word = todisp[key][ii];
+               tr.append("<td>" + word + "</td>")
+             } else {
+               tr.append("<td></td>")
+            }
+        }
+        $('table').append(tr);
+      }
+    }
+
+  //};
+
+  $(document).ready(function() {
+    $.getJSON("vocab.json", function(json) {
+      jsondata = json;
+      initchecks();
+      displaylist( jsondata );
+    })
+  });
+
+</script>
+
+</body>
+</html>
